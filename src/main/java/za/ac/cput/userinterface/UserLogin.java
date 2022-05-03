@@ -81,7 +81,6 @@ public class UserLogin implements ActionListener
             //passwordValidation();
         }
 
-
         if (e.getSource() == btnExit)
         {
             System.exit(0);
