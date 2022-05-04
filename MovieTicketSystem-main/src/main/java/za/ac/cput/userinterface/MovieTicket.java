@@ -12,7 +12,8 @@ import java.util.Scanner;
 
 public class MovieTicket extends JFrame implements ActionListener {
     private JPanel pNorth, pCenter, pSouth;
-    private JLabel lblTitle, lblMovieName, lblCinema, lblDay, lblTime, lblVenue;
+    private TextField txtFirst, txtLast;
+    private JLabel lblFirst, lblLast, lblTitle, lblMovieName, lblCinema, lblDay, lblTime, lblVenue;
     private JComboBox cBoxMovie, cBoxCinema, cBoxDay, cBoxTime, cBoxVenue;
     private String[] movie = {"Spider-Man", "Toy Story", "Fast and Furious"};
     private String[] cinema = {"2D", "3D", "IMAX"};
@@ -29,11 +30,16 @@ public class MovieTicket extends JFrame implements ActionListener {
         pSouth = new JPanel();
 
         lblTitle = new JLabel("Movie Ticket");
+        lblFirst = new JLabel("First Name");
+        lblLast = new JLabel("Last Name");
         lblCinema = new JLabel("Cinema");
         lblMovieName = new JLabel("Movie Name");
         lblDay = new JLabel("Day");
         lblTime = new JLabel("Time");
         lblVenue = new JLabel("Venue");
+
+        txtFirst = new TextField();
+        txtLast = new TextField();
 
         cBoxMovie = new JComboBox(movie);
         cBoxCinema = new JComboBox(cinema);
@@ -48,21 +54,27 @@ public class MovieTicket extends JFrame implements ActionListener {
         ft1 = new Font("Arial", Font.BOLD, 25);
     }
 
-    public void setMovieTicketGUI () {
+    public void setMovieTicketGUI() {
         this.setVisible(true);
         this.setSize(900, 400);
 
         pNorth.setLayout(new FlowLayout());
-        pCenter.setLayout(new GridLayout(5, 2));
+        pCenter.setLayout(new GridLayout(7, 2));
         pSouth.setLayout(new GridLayout(1, 3));
 
         //panel North
+        pNorth.setBackground(new Color (204, 204, 204));
         pNorth.add(lblTitle);
         lblTitle.setFont(ft1);
+        lblTitle.setForeground(Color.black);
 
         //panel Center
         pCenter.add(lblMovieName);
         pCenter.add(cBoxMovie);
+        pCenter.add(lblFirst);
+        pCenter.add(txtFirst);
+        pCenter.add(lblLast);
+        pCenter.add(txtLast);
         pCenter.add(lblCinema);
         pCenter.add(cBoxCinema);
         pCenter.add(lblDay);
@@ -103,11 +115,5 @@ public class MovieTicket extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         new MovieTicket().setMovieTicketGUI();
-
     }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
 }
