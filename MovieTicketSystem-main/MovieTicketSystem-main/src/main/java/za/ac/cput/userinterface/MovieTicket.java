@@ -105,9 +105,6 @@ public class MovieTicket extends JFrame implements ActionListener {
         new MovieTicket().setMovieTicketGUI();
 
     }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
 }

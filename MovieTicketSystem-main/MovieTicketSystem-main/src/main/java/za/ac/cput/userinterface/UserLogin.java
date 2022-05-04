@@ -3,14 +3,6 @@ package za.ac.cput.userinterface;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-<<<<<<< HEAD
-import java.util.regex.*;
-=======
-<<<<<<< HEAD
-import java.util.regex.*;
-=======
->>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
 
 public class UserLogin implements ActionListener
 {
@@ -81,64 +73,15 @@ public class UserLogin implements ActionListener
         mainFrame.setVisible(true);
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
-    //Checking if the password is valid
-    public boolean passwordValidation(String password)
-    {
-        boolean flag = false;
-        
-        String regex = "^(?=.*[0-9])"
-                + "(?=.*[a-z])(?=.*[A-Z])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$";
-        Pattern passwordPattern = Pattern.compile(regex);
-        Matcher matchedPassword = passwordPattern.matcher(password);
-        matchedPassword.matches();
-
-        if (password == null)
-        {
-             flag = false;
-        }else
-            if(matchedPassword.matches() == true)
-            {
-                flag = true;
-            }
-
-        return flag;
-    }
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
     @Override
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == btnLogin)
         {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
-            boolean pass;
-            String password = txtPassword.getText();
-            pass = passwordValidation(password);
-            System.out.println("Password validation:" + pass);
-        }
-
-<<<<<<< HEAD
-=======
-=======
             //passwordValidation();
         }
 
 
->>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
->>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
         if (e.getSource() == btnExit)
         {
             System.exit(0);

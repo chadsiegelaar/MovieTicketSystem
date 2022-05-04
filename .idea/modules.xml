@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/MovieTicketSystem-main (2).iml" filepath="$PROJECT_DIR$/.idea/MovieTicketSystem-main (2).iml" />
+=======
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/MovieTicketSystem-main (1).iml" filepath="$PROJECT_DIR$/.idea/MovieTicketSystem-main (1).iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/MovieTicketSystem-main.iml" filepath="$PROJECT_DIR$/.idea/MovieTicketSystem-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieTicketSystem-main/movie-ticket-system.iml" filepath="$PROJECT_DIR$/MovieTicketSystem-main/movie-ticket-system.iml" />
+>>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
+>>>>>>> 7b48da7b5ec1f19768b762de006ab0706381f480
     </modules>
   </component>
 </project>
