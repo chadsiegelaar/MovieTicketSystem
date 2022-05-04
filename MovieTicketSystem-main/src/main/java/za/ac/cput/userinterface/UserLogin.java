@@ -3,7 +3,10 @@ package za.ac.cput.userinterface;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+<<<<<<< HEAD
 import java.util.regex.*;
+=======
+>>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
 
 public class UserLogin implements ActionListener
 {
@@ -74,6 +77,7 @@ public class UserLogin implements ActionListener
         mainFrame.setVisible(true);
     }
 
+<<<<<<< HEAD
     //Checking if the password is valid
     public boolean passwordValidation(String password)
     {
@@ -99,17 +103,26 @@ public class UserLogin implements ActionListener
         return flag;
     }
 
+=======
+>>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
     @Override
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == btnLogin)
         {
+<<<<<<< HEAD
             boolean pass;
             String password = txtPassword.getText();
             pass = passwordValidation(password);
             System.out.println("Password validation:" + pass);
         }
 
+=======
+            //passwordValidation();
+        }
+
+
+>>>>>>> 8ef7f184c17da1f908f313edee7bfaa3516f71ce
         if (e.getSource() == btnExit)
         {
             System.exit(0);
