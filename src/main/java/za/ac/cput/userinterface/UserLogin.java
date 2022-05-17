@@ -5,22 +5,27 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.regex.*;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class UserLogin implements ActionListener
 {
-    private JFrame mainFrame;
+    private final JFrame mainFrame;
 
-    private JPanel panelNorth, panelWest, panelEast, panelSouth;
+    private final JPanel panelNorth;
+    private final JPanel panelWest;
+    private final JPanel panelEast;
+    private final JPanel panelSouth;
 
-    private JLabel lblHead;
+    private final JLabel lblHead;
 
-    private JLabel lblUserName;
-    private JTextField txtUserName;
+    private final JLabel lblUserName;
+    private final JTextField txtUserName;
 
-    private JLabel lblPassword;
-    private JTextField txtPassword;
+    private final JLabel lblPassword;
+    private final JPasswordField pswdPassword;
 
-    private JButton btnLogin;
-    private JButton btnExit;
+    private final JButton btnLogin;
+    private final JButton btnExit;
 
     public UserLogin()
     {
@@ -36,7 +41,7 @@ public class UserLogin implements ActionListener
         txtUserName = new JTextField(10);
 
         lblPassword = new JLabel("Password");
-        txtPassword = new JTextField(10);
+        pswdPassword = new JPasswordField(10);
 
         btnLogin = new JButton("Login");
         btnExit = new JButton("Exit");
@@ -56,7 +61,7 @@ public class UserLogin implements ActionListener
         panelEast.add(txtUserName);
 
         panelEast.add(lblPassword);
-        panelEast.add(txtPassword);
+        panelEast.add(pswdPassword);
 
         panelSouth.add(btnLogin);
         panelSouth.add(btnExit);
@@ -98,16 +103,29 @@ public class UserLogin implements ActionListener
 
         return flag;
     }
+    public void passwordMessageToUser(boolean pass)
+    {
+        if(pass == false)
+        {
+            showMessageDialog(null, "The password needs to be 8 characters or longer, have a"
+                    + " Uppercase(A-Z), lowercase(a-z), numbers(1-9) and special characters(!, #, $)");
+        }
 
+        if(pass == true)
+        {
+            showMessageDialog(null, "The password is correct");
+        }
+    }
     @Override
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == btnLogin)
         {
             boolean pass;
-            String password = txtPassword.getText();
+            String password = String.valueOf(pswdPassword.getPassword());
             pass = passwordValidation(password);
-            System.out.println("Password validation:" + pass);
+
+            passwordMessageToUser(pass);
         }
 
         if (e.getSource() == btnExit)
