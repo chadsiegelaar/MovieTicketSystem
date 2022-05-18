@@ -13,10 +13,10 @@ import java.awt.event.ActionListener;
 public class FoodDrinkSelection extends JFrame implements ActionListener {
 
     private JPanel panelCenter, panelNorth, panelSouth;
-    private JLabel lblFandD,lblcomboNo, lblcomboSize, lblcomboPrice, lblcomboAvailability, lblcomboTotalprice,lblcomboLogo1,lblSmall,lblMedium,lblLarge;
-    private JTextField txtcNo, txtcPrice,txtAvailability,txtTotalPrice;
-    private JRadioButton radpriceSmall,radpriceMedium,radpriceLarge;
-    private ButtonGroup sizesGroup;
+    private JLabel lblFandD,lblcomboNo, lblcomboSize, lblcomboPrice, lblcomboAvailability, lblcomboTotalprice;
+    private JTextField txtcNo, txtcSize, txtcPrice,txtAvailability,txtTotalPrice;
+    private JComboBox cboSelection;
+    private JLabel lblblank;
     private JButton btnNext,  btnBack, btnExit;
     private Font ft1, ft2;
     int size;
@@ -28,36 +28,28 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         panelCenter = new JPanel();
         panelSouth = new JPanel();
         lblFandD = new JLabel("Food and Drink");
-        lblcomboLogo1 = new JLabel(new ImageIcon("images 1.jpg"));
 
         lblcomboNo = new JLabel("Combo No:");
         txtcNo = new JTextField();
 
         lblcomboSize = new JLabel("Combo Size:");
+        cboSelection = new JComboBox();
+        cboSelection.addItem("Small popcorn, Small Drink, Snack");
+        cboSelection.addItem("Medium popcorn , Medium Drink and Snack");
+        cboSelection.addItem("Large popcorn ,Large Drink and Snack");
 
-
-        lblSmall = new JLabel("Small(Popcorn,Drink And Snack");
-        radpriceSmall= new JRadioButton( "R60");
-
-        lblMedium = new JLabel("Medium(Popcorn,Drink And Snack)");
-        radpriceMedium= new JRadioButton("R80");
-
-        lblLarge = new JLabel("Large(Popcorn,Drink And Snack)");
-        radpriceLarge= new JRadioButton("R95");
-
-
-        lblcomboAvailability= new JLabel("Combo Availability:");
+        lblcomboAvailability= new JLabel("Combo Availability");
         txtAvailability = new JTextField();
 
-        lblcomboPrice = new JLabel("Price:");
+        lblcomboPrice = new JLabel("Price :");
         txtcPrice = new JTextField();
 
 
-        lblcomboTotalprice= new JLabel("Total Price:");
+        lblcomboTotalprice= new JLabel("Total Price :");
         txtTotalPrice = new JTextField();
 
 
-        sizesGroup = new ButtonGroup();
+        lblblank = new JLabel("    ");
 
         btnNext = new JButton("Next");
         btnBack = new JButton("Back");
@@ -71,13 +63,11 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
 
     public void setFoodDrinkGUI() {
         panelNorth.setLayout(new FlowLayout());
-        panelCenter.setLayout(new GridLayout(16, 2));
+        panelCenter.setLayout(new GridLayout(5, 2));
         panelSouth.setLayout(new GridLayout(1, 3));
-
 
         panelNorth.add(lblFandD);
         lblFandD.setFont(ft1);
-        panelNorth.add(lblcomboLogo1);
         lblFandD.setForeground(new Color(255, 209, 204));
         panelNorth.setBackground(new Color(255, 102, 102));
         panelCenter.setBackground(new Color(255, 204, 153));
@@ -90,40 +80,13 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         panelCenter.add(txtcNo);
         txtcNo.setBackground(new Color(255, 204, 153));
 
-        panelCenter.add( lblcomboSize);
+
         lblcomboSize.setFont(ft2);
         lblcomboSize .setHorizontalAlignment(JLabel.LEFT);
-
-
-        panelCenter.add( lblSmall);
-        lblSmall.setFont(ft2);
-        lblSmall.setHorizontalAlignment(JRadioButton.LEFT);
-        panelCenter.add( radpriceSmall);
-        radpriceSmall.setFont(ft2);
-        radpriceSmall.setHorizontalAlignment(JRadioButton.LEFT);
-        radpriceSmall.setBackground(new Color(255, 204, 153));
-        radpriceSmall.setSelected(true);
-
-        panelCenter.add( lblMedium);
-        lblMedium.setFont(ft2);
-        lblMedium.setHorizontalAlignment(JRadioButton.LEFT);
-        panelCenter.add( radpriceMedium);
-        radpriceMedium.setFont(ft2);
-        radpriceMedium.setHorizontalAlignment(JRadioButton.LEFT);
-        radpriceMedium.setBackground(new Color(255, 204, 153));
-
-        panelCenter.add( lblLarge);
-        lblLarge.setFont(ft2);
-        lblLarge.setHorizontalAlignment(JRadioButton.LEFT);
-        panelCenter.add( radpriceLarge);
-        radpriceLarge.setFont(ft2);
-        radpriceLarge.setHorizontalAlignment(JRadioButton.LEFT);
-        radpriceLarge.setBackground(new Color(255, 204, 153));
-
-
-        sizesGroup.add(radpriceSmall);
-        sizesGroup.add(radpriceMedium);
-        sizesGroup.add(radpriceLarge);
+        cboSelection.setFont(ft2);
+        panelCenter.add( lblcomboSize);
+        panelCenter.add( cboSelection);
+        cboSelection.setBackground(new Color(255, 204, 153));
 
         lblcomboAvailability.setFont(ft2);
         lblcomboAvailability.setHorizontalAlignment(JLabel.LEFT);
