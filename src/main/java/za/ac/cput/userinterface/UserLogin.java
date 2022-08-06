@@ -1,5 +1,8 @@
 package za.ac.cput.userinterface;
 
+import za.ac.cput.domain.User;
+import za.ac.cput.factory.UserFactory;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -103,29 +106,82 @@ public class UserLogin implements ActionListener
 
         return flag;
     }
-    public void passwordMessageToUser(boolean pass)
+
+    //Displaying message if the username and/or password is empty
+    public boolean ifLoginEmpty()
     {
+        boolean flag =true;
+        if(txtUserName.getText().isEmpty()  && String.valueOf(pswdPassword.getPassword()).isEmpty())
+        {
+            showMessageDialog(null, "Please enter your credentials");
+            flag =false;
+        }
+        else
+            if(txtUserName.getText().isEmpty())
+            {
+                showMessageDialog(null ,"Please enter your username");
+                flag =false;
+            }
+            else
+                if(String.valueOf(pswdPassword.getPassword()).isEmpty())
+                {
+                    showMessageDialog(null ,"Please enter your password");
+                    flag =false;
+                }
+        return flag;
+    }
+
+    //Giving a message to the user, based on if the password is valid
+    public void passwordMessageToUser()
+    {
+        boolean pass;
+        String password = String.valueOf(pswdPassword.getPassword());
+        pass = passwordValidation(password);
         if(pass == false)
         {
-            showMessageDialog(null, "The password needs to be 8 characters or longer, have a"
-                    + " Uppercase(A-Z), lowercase(a-z), numbers(1-9) and special characters(!, #, $)");
-        }
-
-        if(pass == true)
-        {
-            showMessageDialog(null, "The password is correct");
+            showMessageDialog(null, "The password needs to be 8 characters or longer," +
+                    " have a Uppercase(A-Z), lowercase(a-z), numbers(1-9) and special characters(!, #, $)");
+        }else {
+            checkUser();
         }
     }
+
+    //Adding users to an array, to test if the login will work
+    public User[] addUsers()
+    {
+        User[] users = new User[3];
+
+        users[0] = UserFactory.build("Wilbur", "123Wilb!@#");
+        users[1] = UserFactory.build("Mike", "Bob78%^&");
+        users[2] = UserFactory.build("Sarah", "Sa478%^&");
+
+        return users;
+    }
+
+    public void checkUser()
+    {
+        User[] users = addUsers();
+
+        for(int i =0; i > users.length; i++)
+        {
+            if(txtUserName.getText().equals(users[i].getName())  &&
+                    String.valueOf(pswdPassword.getPassword()).equals(users[i].getPassword()) )
+            {
+                 showMessageDialog(null, "Welcome: " +
+                         String.valueOf(pswdPassword.getPassword()));
+            }
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == btnLogin)
         {
-            boolean pass;
-            String password = String.valueOf(pswdPassword.getPassword());
-            pass = passwordValidation(password);
-
-            passwordMessageToUser(pass);
+           if(ifLoginEmpty() == true)
+           {
+               passwordMessageToUser();
+           }
         }
 
         if (e.getSource() == btnExit)
