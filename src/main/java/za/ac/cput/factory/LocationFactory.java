@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Location;
-import za.ac.cput.domain.Movie;
 import za.ac.cput.helper.RepositoryHelper;
 
 public class LocationFactory {
