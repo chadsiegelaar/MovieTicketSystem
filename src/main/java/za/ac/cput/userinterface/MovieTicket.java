@@ -13,17 +13,20 @@ import java.util.Scanner;
 public class MovieTicket extends JFrame implements ActionListener {
     private JPanel pNorth, pCenter, pSouth, pEast;
     private JTextField txtFirst, txtLast;
-    private JLabel lblFirst, lblLast, lblTitle, lblMovieName, lblCinema, lblDay, lblTime, lblVenue;
+    private JLabel lblLogo, lblFirst, lblLast, lblTitle, lblMovieName, lblCinema, lblDay, lblTime, lblVenue;
     private JComboBox cBoxMovie, cBoxCinema, cBoxDay, cBoxTime, cBoxVenue;
+    private JRadioButton rad1, rad2, rad3;
     private String[] movie = {"", "Spider-Man", "Toy Story", "Fast and Furious"};
+
     private String[] cinema = {"", "2D", "3D", "IMAX"};
+
     private String[] day = {"","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     private String[] time = {"", "9h15", "12h25", "15h35", "18h45"};
     private String[] venue = {"", "City", "Goodwood", "Claremont", "Muizenberg"};
     private JButton bBack, bNext, bExit;
 
     private JTextArea  receipt;
-    private Font ft1;
+    private Font ft1, ft2;
 
     public MovieTicket() {
         super("Movie Ticket");
@@ -31,6 +34,7 @@ public class MovieTicket extends JFrame implements ActionListener {
         pCenter = new JPanel();
         pSouth = new JPanel();
         pEast = new JPanel();
+        lblLogo =  new JLabel(new ImageIcon("film.png"));
 
         lblTitle = new JLabel("Movie Ticket");
         lblFirst = new JLabel("First Name");
@@ -67,11 +71,12 @@ public class MovieTicket extends JFrame implements ActionListener {
                 "-- THANK YOU! --" );
 
         ft1 = new Font("Arial", Font.BOLD, 25);
+        ft2 = new Font("Arial", Font.BOLD, 15);
     }
 
     public void setMovieTicketGUI() {
         this.setVisible(true);
-        this.setSize(900, 400);
+        this.setSize(900, 510);
 
         pNorth.setLayout(new FlowLayout());
         pCenter.setLayout(new GridLayout(7, 2));
@@ -80,12 +85,14 @@ public class MovieTicket extends JFrame implements ActionListener {
 
 
         //panel North
-        pNorth.setBackground(new Color (204, 204, 204));
+        pNorth.setBackground(new Color (52, 146, 235));
         pNorth.add(lblTitle);
+        pNorth.add(lblLogo);
         lblTitle.setFont(ft1);
         lblTitle.setForeground(Color.black);
 
         //panel Center
+        pCenter.setBackground(new Color (92, 150, 204));
         pCenter.add(lblMovieName);
         pCenter.add(cBoxMovie);
         pCenter.add(lblFirst);
@@ -107,6 +114,14 @@ public class MovieTicket extends JFrame implements ActionListener {
         pSouth.add(bExit);
         pEast.add(receipt);
 
+        lblMovieName.setFont(ft2);
+        lblCinema.setFont(ft2);
+        lblFirst.setFont(ft2);
+        lblLast.setFont(ft2);
+        lblDay.setFont(ft2);
+        lblTime.setFont(ft2);
+        lblVenue.setFont(ft2);
+
         this.add(pNorth, BorderLayout.NORTH);
         this.add(pCenter, BorderLayout.CENTER);
         this.add(pSouth, BorderLayout.SOUTH);
@@ -120,7 +135,7 @@ public class MovieTicket extends JFrame implements ActionListener {
         this.setVisible(true);
 
     }
-
+    //Methods for Receipt
     public String getTxtFirst() {
         return txtFirst.getText();
     }
@@ -133,8 +148,7 @@ public class MovieTicket extends JFrame implements ActionListener {
         return cBoxMovie.getEditor().getItem().toString();
     }
 
-    public String getCinema() {
-        return cBoxCinema.getEditor().getItem().toString();
+    public String getCinema() { return cBoxCinema.getEditor().getItem().toString();
     }
 
     public String getDay() {
@@ -153,12 +167,13 @@ public class MovieTicket extends JFrame implements ActionListener {
         receipt.setText( s );
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back")) {
 
+
         } else if (e.getActionCommand().equals("Print")) {
+
             String name = getTxtFirst();
             String movie = getMovie();
             String lname = getTxtLast();
@@ -175,7 +190,7 @@ public class MovieTicket extends JFrame implements ActionListener {
                     "TIME: " + time + "\n\n" +
                     "VENUE: " + venue + "\n\n" +
                     "-- THANK YOU! --" );
-
+            JOptionPane.showMessageDialog(this, "Processing receipt");
 
         } else if (e.getActionCommand().equals("Exit")) {
             System.exit(0);
