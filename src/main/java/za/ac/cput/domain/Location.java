@@ -1,6 +1,12 @@
 package za.ac.cput.domain;
 
-public class Location  {
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Embeddable
+public class Location implements Serializable {
+
    private  String NameOfCinema;
    private String SeatName;
    private String SeatSection;
@@ -18,6 +24,8 @@ public class Location  {
         this.SeatSection = builder.SeatSection;
         this.SeatAvailability = builder.SeatAvailability;
     }
+
+    public Location() {}
 
     public String getNameOfCinema() {
         return NameOfCinema;

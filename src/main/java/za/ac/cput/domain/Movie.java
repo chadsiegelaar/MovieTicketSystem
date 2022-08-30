@@ -1,7 +1,17 @@
 package za.ac.cput.domain;
 
-public class Movie {
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Movie implements Serializable {
+    @Id
+    @Column(name = "MovieID", nullable = false)
     private String MovieID;
+
     private String Title;
     private  double Rating;
     private String MovieType;
@@ -13,6 +23,9 @@ public class Movie {
         this.Rating = Rating;
         MovieType = movieType;
         RunningTime = runningTime;
+    }
+
+    public Movie() {
     }
 
     public String getMovieID() {
