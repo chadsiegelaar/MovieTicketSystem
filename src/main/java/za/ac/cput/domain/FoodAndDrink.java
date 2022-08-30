@@ -3,17 +3,22 @@
  *Movie Ticket System
  *Tasneem Jacobs (215030389)
  * Food And Drink
+ * Entity
  */
 package za.ac.cput.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-
+@Entity
 public class FoodAndDrink  implements Serializable{
-        private int comboNO;
+      @NotNull@Id private int comboNO;
         private String comboSize;
         private int comboPrice;
         private int comboAvailability;
         private int totalPrice;
+public FoodAndDrink(){}
 
         public FoodAndDrink(int comboNO, String comboSize, int comboPrice, int comboAvailability , int totalPrice){
             this.comboNO =comboNO;
