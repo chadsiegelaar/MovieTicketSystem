@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.User;
 import za.ac.cput.repository.UserRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,5 +38,10 @@ public class UserServiceimpl implements UserService{
     public void deleteById(String id)
     {
         this.repository.deleteById(id);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return this.repository.findAll();
     }
 }

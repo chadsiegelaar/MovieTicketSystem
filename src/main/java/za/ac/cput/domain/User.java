@@ -1,18 +1,5 @@
 package za.ac.cput.domain;
 
-<<<<<<< HEAD
-public class User
-{
-    private String name;
-    private String password;
-
-    public User(Builder builder)
-    {
-        this.name = builder.name;
-        this.password = builder.password;
-    }
-
-=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,7 +27,6 @@ public class User implements Serializable
     public int getId(){
         return id;
     }
->>>>>>> 6f9b84573fe2c799ff9b4539f746d1aa1d9dd05f
     public String getName()
     {
         return name;
@@ -53,10 +39,7 @@ public class User implements Serializable
 
     public static class Builder
     {
-<<<<<<< HEAD
-=======
         private int id;
->>>>>>> 6f9b84573fe2c799ff9b4539f746d1aa1d9dd05f
         private String name;
         private String password;
 
@@ -71,11 +54,6 @@ public class User implements Serializable
             this.password = password;
             return this;
         }
-
-<<<<<<< HEAD
-        public Builder copy(User user)
-        {
-=======
         public Builder setId(int id)
         {
             this.id = id;
@@ -85,7 +63,6 @@ public class User implements Serializable
         public Builder copy(User user)
         {
             this.id = user.id;
->>>>>>> 6f9b84573fe2c799ff9b4539f746d1aa1d9dd05f
             this.name = user.name;
             this.password = user.password;
             return this;
