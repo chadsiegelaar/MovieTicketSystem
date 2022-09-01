@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="za.ac.cput.userinterface.MovieGui">
-  <grid id="27dc6" binding="Main" layout-manager="GridLayoutManager" row-count="10" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="Main" layout-manager="GridLayoutManager" row-count="11" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
@@ -26,7 +26,7 @@
       </hspacer>
       <component id="3f279" class="javax.swing.JComboBox" binding="MovieTitle">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16382458"/>
@@ -36,18 +36,9 @@
           <model/>
         </properties>
       </component>
-      <component id="93bde" class="javax.swing.JLabel" binding="Title">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Monospaced" size="16" style="1"/>
-          <text value="Movie Title"/>
-        </properties>
-      </component>
       <component id="f57b0" class="javax.swing.JLabel" binding="Ratings">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Monospaced" size="16" style="1"/>
@@ -55,25 +46,6 @@
         </properties>
       </component>
       <component id="b8db5" class="javax.swing.JTextField" binding="textRatings">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-        </properties>
-      </component>
-      <component id="fb4e6" class="javax.swing.JLabel" binding="Genre">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Monospaced" size="16" style="1"/>
-          <text value="Genre"/>
-        </properties>
-      </component>
-      <component id="8bf2e" class="javax.swing.JTextField" binding="textGenre">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -83,16 +55,16 @@
           <editable value="false"/>
         </properties>
       </component>
-      <component id="413e9" class="javax.swing.JLabel" binding="RYear">
+      <component id="fb4e6" class="javax.swing.JLabel" binding="Genre">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Monospaced" size="16" style="1"/>
-          <text value="Release Year"/>
+          <text value="Genre"/>
         </properties>
       </component>
-      <component id="1ec0d" class="javax.swing.JTextField" binding="textReleaseYear">
+      <component id="8bf2e" class="javax.swing.JTextField" binding="textGenre">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -102,16 +74,16 @@
           <editable value="false"/>
         </properties>
       </component>
-      <component id="512" class="javax.swing.JLabel" binding="RunningTime">
+      <component id="413e9" class="javax.swing.JLabel" binding="RYear">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Monospaced" size="16" style="1"/>
-          <text value="Running Time"/>
+          <text value="Release Year"/>
         </properties>
       </component>
-      <component id="b8114" class="javax.swing.JTextField" binding="textRunTime">
+      <component id="1ec0d" class="javax.swing.JTextField" binding="textReleaseYear">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -121,9 +93,28 @@
           <editable value="false"/>
         </properties>
       </component>
+      <component id="512" class="javax.swing.JLabel" binding="RunningTime">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Monospaced" size="16" style="1"/>
+          <text value="Running Time"/>
+        </properties>
+      </component>
+      <component id="b8114" class="javax.swing.JTextField" binding="textRunTime">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+        </properties>
+      </component>
       <component id="5f6a7" class="javax.swing.JLabel" binding="Director">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Monospaced" size="16" style="1"/>
@@ -132,7 +123,7 @@
       </component>
       <component id="632b2" class="javax.swing.JTextField" binding="textDirector">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -142,7 +133,7 @@
       </component>
       <component id="4f034" class="javax.swing.JLabel" binding="Description">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Monospaced" size="16" style="1"/>
@@ -151,7 +142,7 @@
       </component>
       <component id="6b34" class="javax.swing.JTextArea" binding="MovieDescription">
         <constraints>
-          <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
@@ -163,7 +154,7 @@
       </component>
       <component id="67304" class="javax.swing.JButton" binding="selectButton" default-binding="true">
         <constraints>
-          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16382458"/>
@@ -174,7 +165,7 @@
       </component>
       <component id="3102b" class="javax.swing.JButton" binding="nextButton" default-binding="true">
         <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16382458"/>
@@ -185,13 +176,91 @@
       </component>
       <component id="61107" class="javax.swing.JButton" binding="previousButton" default-binding="true">
         <constraints>
-          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16382458"/>
           <font name="Monospaced" size="14" style="3"/>
           <foreground color="-858339"/>
           <text value="Previous"/>
+        </properties>
+      </component>
+      <component id="4aa5f" class="javax.swing.JTextField" binding="searchField">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="34195" class="javax.swing.JComboBox" binding="GenreBox">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <foreground color="-858339"/>
+        </properties>
+      </component>
+      <component id="63994" class="javax.swing.JComboBox" binding="ReleaseYBox">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <foreground color="-858339"/>
+        </properties>
+      </component>
+      <component id="2ce9" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Monospaced" size="16" style="1"/>
+          <text value="           Genre"/>
+        </properties>
+      </component>
+      <component id="93bde" class="javax.swing.JLabel" binding="Title">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Monospaced" size="16" style="1"/>
+          <text value="Movie Title"/>
+        </properties>
+      </component>
+      <component id="d8b8e" class="javax.swing.JButton" binding="searchButton">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <enabled value="true"/>
+          <font name="Monospaced" size="14" style="3"/>
+          <foreground color="-858339"/>
+          <text value="Search"/>
+        </properties>
+      </component>
+      <component id="3b47f" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Monospaced" size="16" style="1"/>
+          <text value="   Year"/>
+        </properties>
+      </component>
+      <component id="6505a" class="javax.swing.JButton" binding="Clearbutton">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="Monospaced" size="14" style="3"/>
+          <foreground color="-858339"/>
+          <inheritsPopupMenu value="true"/>
+          <label value="Clear"/>
+          <text value="Clear"/>
         </properties>
       </component>
     </children>
