@@ -15,7 +15,6 @@ public class MovieTicket extends JFrame implements ActionListener {
     private JTextField txtFirst, txtLast;
     private JLabel lblLogo, lblFirst, lblLast, lblTitle, lblMovieName, lblCinema, lblDay, lblTime, lblVenue;
     private JComboBox cBoxMovie, cBoxCinema, cBoxDay, cBoxTime, cBoxVenue;
-    private JRadioButton rad1, rad2, rad3;
     private String[] movie = {"", "Spider-Man", "Toy Story", "Fast and Furious"};
 
     private String[] cinema = {"", "2D", "3D", "IMAX"};
@@ -63,15 +62,14 @@ public class MovieTicket extends JFrame implements ActionListener {
                 "MOVIE:\n\n" +
                 "FIRST NAME:\n\n" +
                 "LAST NAME:\n\n" +
-                "MOVIE:\n\n" +
                 "CINEMA:\n\n" +
                 "DAY:\n\n" +
                 "TIME:\n\n" +
                 "VENUE:\n\n" +
                 "-- THANK YOU! --" );
 
-        ft1 = new Font("Arial", Font.BOLD, 25);
-        ft2 = new Font("Arial", Font.BOLD, 15);
+        ft1 = new Font("Monospaced", Font.BOLD, 36);
+        ft2 = new Font("Monospaced", Font.BOLD, 16);
     }
 
     public void setMovieTicketGUI() {
@@ -85,14 +83,14 @@ public class MovieTicket extends JFrame implements ActionListener {
 
 
         //panel North
-        pNorth.setBackground(new Color (52, 146, 235));
+        pNorth.setBackground(new Color (242, 231, 29));
         pNorth.add(lblTitle);
         pNorth.add(lblLogo);
         lblTitle.setFont(ft1);
         lblTitle.setForeground(Color.black);
 
         //panel Center
-        pCenter.setBackground(new Color (92, 150, 204));
+        pCenter.setBackground(new Color (242, 231, 29));
         pCenter.add(lblMovieName);
         pCenter.add(cBoxMovie);
         pCenter.add(lblFirst);
@@ -113,6 +111,13 @@ public class MovieTicket extends JFrame implements ActionListener {
         pSouth.add(bNext);
         pSouth.add(bExit);
         pEast.add(receipt);
+        bBack.setForeground(new Color (242, 231, 29));
+        bBack.setBackground(new Color (0, 0, 0));
+        bNext.setForeground(new Color (242, 231, 29));
+        bNext.setBackground(new Color (0, 0, 0));
+        bExit.setForeground(new Color (242, 231, 29));
+        bExit.setBackground(new Color (0, 0, 0));
+
 
         lblMovieName.setFont(ft2);
         lblCinema.setFont(ft2);

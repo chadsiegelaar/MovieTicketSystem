@@ -29,8 +29,9 @@ public class UserServiceimpl implements UserService{
     }
 
     @Override
-    public void delete(User user) {
+    public boolean delete(User user) {
         this.repository.delete(user);
+        return false;
     }
 
     @Override
