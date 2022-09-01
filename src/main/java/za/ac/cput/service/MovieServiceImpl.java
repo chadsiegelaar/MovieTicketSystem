@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Movie;
 import za.ac.cput.repository.IMovie;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -36,5 +37,20 @@ public class MovieServiceImpl implements MovieService {
     }
     public Set<Movie> getAll(){
        return this.repository.findAll().stream().collect(Collectors.toSet());
+    }
+
+    @Override
+    public Object save(Object o) {
+        return null;
+    }
+
+    @Override
+    public Optional read(Object o) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void delete(Object o) {
+
     }
 }
