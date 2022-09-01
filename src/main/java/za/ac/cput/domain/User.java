@@ -54,7 +54,6 @@ public class User implements Serializable
             this.password = password;
             return this;
         }
-
         public Builder setId(int id)
         {
             this.id = id;
