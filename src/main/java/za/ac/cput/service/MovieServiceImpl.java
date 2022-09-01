@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class MovieServiceImpl implements MovieService {
+public abstract class MovieServiceImpl implements MovieService {
 
     private IMovie repository;
 
@@ -20,8 +20,8 @@ public class MovieServiceImpl implements MovieService {
     public Movie save (Movie movie){
        return this.repository.save(movie);
     }
-    public Movie read (String MovieID){
-       return (Movie) this.repository.findByMovieID(MovieID);
+    public Optional<Movie> read (String MovieID){
+       return Optional.ofNullable((Movie) this.repository.findByMovieID(MovieID));
     }
 
     public boolean delete(String MovieID){
