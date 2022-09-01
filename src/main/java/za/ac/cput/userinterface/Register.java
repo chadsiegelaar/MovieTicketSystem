@@ -28,7 +28,14 @@ public class Register extends JDialog {
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                FNtxt.setText("");
+                LNtxt.setText("");
+                Emailtxt.setText("");
+                Celltxt.setText("");
+                Usertxt.setText("");
+                Passwordtxt.setText("");
+
+
             }
         });
         registerButton.addActionListener(new ActionListener() {
@@ -69,10 +76,6 @@ public class Register extends JDialog {
     public User user;
     private User addUsertoDatabase(String FirstName, String LastName, String Email, String CellNumber, String UserName, String Password ){
         User user = null;
-        final String DB_URL = "";
-        final String USERNAME = "root";
-        final String PASSWORD = "Root";
-
         return user;
     }
 
