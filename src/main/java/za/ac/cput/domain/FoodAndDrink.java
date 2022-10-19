@@ -7,76 +7,138 @@
  */
 package za.ac.cput.domain;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+
 @Entity
-public class FoodAndDrink  implements Serializable{
-      @NotNull@Id private int comboNO;
+public class FoodAndDrink implements Serializable {
+    public int length;
+    @NotNull
+    @Id
+    private String comboNO;
+    private String comboSize;
+    private String comboPrice;
+    private String comboAvailability;
+    private String totalPrice;
+
+    public FoodAndDrink() {
+    }
+
+    private FoodAndDrink(Builder builder) {
+        this.comboNO = builder.comboNO;
+        this.comboSize = builder.comboSize;
+        this.comboAvailability = builder.comboAvailability;
+        this.totalPrice = builder.totalPrice;
+        this.comboPrice =builder.comboPrice;
+    }
+
+    public void setComboNO(String  comboNO) {
+        this.comboNO = comboNO;
+    }
+
+    public void setComboSize(String comboSize) {
+        this.comboSize = comboSize;
+    }
+
+    public void setComboPrice(String  comboPrice) {
+        this.comboPrice = comboPrice;
+    }
+
+    public void setComboAvailability(String  comboAvailability) {
+        this.comboAvailability = comboAvailability;
+    }
+
+    public void setTotalPrice(String  totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String  getComboNO() {
+        return comboNO;
+    }
+
+    public String  getComboPrice() {
+        return comboPrice;
+    }
+
+    public String  getComboAvailability() {
+        return comboAvailability;
+    }
+
+    public String  getTotalPrice() {
+        return totalPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodAndDrink{" +
+                "comboNO=" + comboNO +
+                ", comboSize='" + comboSize + '\'' +
+                ", comboPrice=" + comboPrice +
+                ", comboAvailability=" + comboAvailability +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
+
+    public void set(String  comboNO, String comboSize, String  comboPrice, String  comboAvailability,String  totalPrice) {
+        this.comboNO = comboNO;
+        this.comboPrice = comboPrice;
+        this.comboSize = comboSize;
+        this.comboAvailability = comboAvailability;
+        this.totalPrice = totalPrice;
+
+    }
+
+    public static class Builder {
+
+        private String  comboNO;
         private String comboSize;
-        private int comboPrice;
-        private int comboAvailability;
-        private int totalPrice;
-public FoodAndDrink(){}
+        private String  comboPrice;
+        private String  comboAvailability;
+        private String  totalPrice;
 
-        public FoodAndDrink(int comboNO, String comboSize, int comboPrice, int comboAvailability , int totalPrice){
-            this.comboNO =comboNO;
-            this.comboSize= comboSize;
-            this.comboAvailability = comboAvailability;
-            this.totalPrice = totalPrice;
-        }
-
-        public int getComboNO() {
-            return comboNO;
-        }
-
-        public String getComboSize() {
-            return comboSize;
-        }
-
-        public int getComboPrice() {
-            return comboPrice;
-        }
-
-        public int getComboAvailability() {
-            return comboAvailability;
-        }
-
-        public int getTotalPrice() {
-            return totalPrice;
-        }
-
-        public void setComboNO(int comboNO) {
+        public Builder setComboNO(String  comboNO) {
             this.comboNO = comboNO;
+            return  this;
         }
 
-        public void setComboSize(String comboSize) {
+        public Builder setComboSize(String comboSize) {
             this.comboSize = comboSize;
+            return  this;
         }
 
-        public void setComboPrice(int comboPrice) {
+        public Builder setComboPrice(String  comboPrice) {
             this.comboPrice = comboPrice;
+            return  this;
         }
 
-        public void setComboAvailability(int comboAvailability) {
+        public Builder setComboAvailability(String  comboAvailability) {
             this.comboAvailability = comboAvailability;
+            return  this;
         }
 
-        public void setTotalPrice(int totalPrice) {
+        public Builder setTotalPrice(String  totalPrice) {
             this.totalPrice = totalPrice;
+            return  this;
         }
 
-        @Override
-        public String toString() {
-            return "FoodAndDrink{" +
-                    "comboNO=" + comboNO +
-                    ", comboSize='" + comboSize + '\'' +
-                    ", comboPrice=" + comboPrice +
-                    ", comboAvailability=" + comboAvailability +
-                    ", totalPrice=" + totalPrice +
-                    '}';
+        public Builder copy(FoodAndDrink foodAndDrink) {
+            this.comboNO = foodAndDrink.comboNO;
+            this.comboPrice = foodAndDrink.comboPrice;
+            this.comboSize = foodAndDrink.comboSize;
+            this.comboAvailability = foodAndDrink.comboAvailability;
+            this.totalPrice = foodAndDrink.totalPrice;
+            return this;
+        }
+
+        public FoodAndDrink build() {
+            return new FoodAndDrink(this);
         }
     }
+}
+
 
 
