@@ -2,11 +2,12 @@ package za.ac.cput.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
-@Embeddable
+@Entity
 public class Location implements Serializable {
-
+    @Id
    private  String NameOfCinema;
    private String SeatName;
    private String SeatSection;

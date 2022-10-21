@@ -5,12 +5,13 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Movie;
 import za.ac.cput.repository.IMovie;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public abstract class MovieServiceImpl implements MovieService {
+public  class MovieServiceImpl implements MovieService {
 
     private IMovie repository;
 
@@ -20,8 +21,9 @@ public abstract class MovieServiceImpl implements MovieService {
     public Movie save (Movie movie){
        return this.repository.save(movie);
     }
+
     public Optional<Movie> read (String MovieID){
-       return Optional.ofNullable((Movie) this.repository.findByMovieID(MovieID));
+       return  this.repository.findById(MovieID);
     }
 
     public boolean delete(String MovieID){
@@ -31,26 +33,17 @@ public abstract class MovieServiceImpl implements MovieService {
        }
        return false;
     }
-    public  Movie findByName(String title){
-     return this.repository.findBytitle(title);
 
-    }
-    public Set<Movie> getAll(){
-       return this.repository.findAll().stream().collect(Collectors.toSet());
+    @Override
+    public  Optional<Movie> findByTitle(String Title) {
+        return this.repository.findById(Title);
     }
 
     @Override
-    public Object save(Object o) {
-        return null;
+    public List<Movie> findAll() {
+        return this.repository.findAll();
     }
 
-    @Override
-    public Optional read(Object o) {
-        return Optional.empty();
-    }
 
-    @Override
-    public void delete(Object o) {
-
-    }
 }
+

@@ -4,7 +4,7 @@ import za.ac.cput.domain.Location;
 import za.ac.cput.helper.RepositoryHelper;
 
 public class LocationFactory {
-    public static Location CreateLocation(String nameOfCinema, String seatName,
+    public static Location build(String nameOfCinema, String seatName,
                                           String seatSection, boolean seatAvailability) {
 
 
