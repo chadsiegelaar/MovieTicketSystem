@@ -7,5 +7,6 @@ import za.ac.cput.domain.Register;
 
 @Repository
 public interface RegisterRepository extends JpaRepository<Register, String> {
+    void deleteById(String id);
 }
 
