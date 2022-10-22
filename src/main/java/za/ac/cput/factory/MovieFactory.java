@@ -4,7 +4,7 @@ import za.ac.cput.domain.Movie;
 import za.ac.cput.helper.RepositoryHelper;
 
 public class MovieFactory {
-    public static Movie CreateMovie(String movieID, String title, double Rating,
+    public static Movie build(String movieID, String title, double Rating,
                                     String movieType, double runningTime) {
 
 

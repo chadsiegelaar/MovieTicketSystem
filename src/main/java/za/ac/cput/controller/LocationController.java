@@ -10,9 +10,10 @@ import za.ac.cput.domain.Location;
 import za.ac.cput.service.LocationImpl;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("movie-ticket/location/")
+@RequestMapping("/movie-ticket/location/")
 @Slf4j
 public class LocationController {
     private LocationImpl locationService;
@@ -20,25 +21,28 @@ public class LocationController {
     public LocationController(LocationImpl locationService){
         this.locationService = locationService;
     }
+
     @PostMapping("save")
-    public ResponseEntity<Location> save(@Valid @RequestBody Location location)
+    public Location save(@Valid @RequestBody Location location)
     {
         log.info("Save Request: {}", location);
-        Location save = this.locationService.save(location);
-        return ResponseEntity.ok(save);
+        return this.locationService.save(location);
     }
     @GetMapping("all")
-    public ResponseEntity<List<Location>> findAll()
+    public List<Location> findAll()
     {
-        List<Location> location = this.locationService.findAll();
-        return ResponseEntity.ok(location);
+        return this.locationService.findAll();
     }
     @GetMapping("read/{id}")
-    public ResponseEntity<Location> read(@PathVariable String id)
+    public Optional<Location> read(@PathVariable String id)
     {
         log.info("Read Request: {}", id);
-        Location location = this.locationService.read(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(location);
+        return this.locationService.read(id);
     }
+    @DeleteMapping("delete/{id}")
+    public void deleteById(@PathVariable String id) {
+        this.locationService.deleteById(id);
+
+    }
+
 }

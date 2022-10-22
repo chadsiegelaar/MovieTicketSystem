@@ -1,13 +1,13 @@
 package za.ac.cput.service;
 
 import za.ac.cput.domain.Location;
-import za.ac.cput.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface LocationService extends IService<Location,String> {
-
-    void deleteById(String id);
+public interface LocationService  {
 
     List<Location> findAll();
+    void deleteById(String id);
+    Optional<Location> read(String s);
 }

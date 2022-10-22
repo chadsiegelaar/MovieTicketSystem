@@ -13,9 +13,10 @@ import za.ac.cput.service.MovieServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("movie-ticket/movie/")
+@RequestMapping("/movie-ticket/movie/")
 @Slf4j
 public class MovieController {
     private  MovieServiceImpl movieService;
@@ -25,27 +26,31 @@ public class MovieController {
 
     }
     @GetMapping("read/{id}")
-    public ResponseEntity<Movie> read(@PathVariable String id)
+    public Optional<Movie> read(@PathVariable String id)
     {
         log.info("Read Request: {}", id);
-        Movie  movie = this.movieService.read(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(movie);
-    }
 
+        return this.movieService.read(id);
+    }
     @PostMapping("save")
-    public ResponseEntity<Movie> save(@Valid @RequestBody Movie movie)
+    public Movie save(@Valid @RequestBody Movie movie)
     {
         log.info("Save Request: {}", movie);
-        Movie save = this.movieService.save(movie);
-        return ResponseEntity.ok(save);
+        return this.movieService.save(movie);
     }
     @GetMapping("all")
-    public ResponseEntity<List<Movie>> findAll()
+    public List<Movie> findAll()
     {
-        List<Movie> movie = this.movieService.findAll();
-        return ResponseEntity.ok(movie);
+        return this.movieService.findAll();
     }
-
+    @GetMapping("find/{title}")
+    public Optional<Movie> findTitle(@PathVariable @Valid String Title){
+        return  this.movieService.findByTitle(Title);
+    }
+@DeleteMapping("delete/{MovieID}")
+public boolean delete(@PathVariable String MovieID){
+        this.movieService.delete(MovieID);
+        return true;
+}
 
 }

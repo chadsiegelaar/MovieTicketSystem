@@ -16,21 +16,18 @@ public class LocationImpl implements  LocationService{
     public LocationImpl(iLocationRepository repository){
         this.repository = repository;
     }
-    @Override
+
     public Location save(Location location) {
         return this.repository.save(location);
     }
     @Override
     public Optional<Location> read(String s) {
-        return this.repository.read(s);
-    }
-    @Override
-    public void delete(Location location) {
-      this.repository.delete(location);
+        return this.repository.findById(s);
     }
     @Override
     public void deleteById(String id) {
       this.repository.deleteById(id);
+
     }
     @Override
     public List<Location> findAll() {
