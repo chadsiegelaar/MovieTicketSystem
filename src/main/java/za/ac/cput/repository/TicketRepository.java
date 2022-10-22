@@ -12,5 +12,5 @@ import java.util.Set;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, String> {
-    public Set<Ticket> getAll();
+
 }

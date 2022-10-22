@@ -14,14 +14,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class TicketServiceImpl implements TicketService {
+public class TicketServiceImpl implements TicketService{
     private TicketRepository repository;
 
     @Autowired
-    TicketServiceImpl(TicketRepository repository) {
+    public TicketServiceImpl(TicketRepository repository) {
         this.repository = repository;}
 
-    @Override
+
     public Ticket save(Ticket ticket) {
         return this.repository.save(ticket);}
 
@@ -30,9 +30,8 @@ public class TicketServiceImpl implements TicketService {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
     @Override
-    public boolean delete(Ticket ticket){
-        this.repository.delete(ticket);
-        return false;
+    public void deleteById(String Id){
+        this.repository.deleteById(Id);
     }
 
     @Override
