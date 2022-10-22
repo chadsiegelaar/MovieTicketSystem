@@ -50,6 +50,29 @@ public class UserLogin implements ActionListener
         btnExit = new JButton("Exit");
     }
 
+    //Set colors of the login screen
+    public void setColors()
+    {
+        panelNorth.setBackground(Color.decode("#F2E71D"));
+        panelWest.setBackground(Color.decode("#F2E71D"));
+        panelEast.setBackground(Color.decode("#F2E71D"));
+        panelSouth.setBackground(Color.decode("#F2E71D"));
+
+        btnLogin.setBackground(Color.decode("#000000"));
+        btnLogin.setForeground(Color.decode("#F2E71D"));
+
+        btnExit.setBackground(Color.decode("#000000"));
+        btnExit.setForeground(Color.decode("#F2E71D"));
+
+        //Login Pop up colors
+        UIManager UI=new UIManager();
+        UI.put("OptionPane.background", Color.decode("#F2E71D"));
+        UI.put("OptionPane.messageForeground", Color.decode("#000000"));
+        UI.put("Panel.background", Color.decode("#F2E71D"));
+        UI.put("Button.background", Color.decode("#000000"));
+        UI.put("Button.foreground", Color.decode("#F2E71D"));
+    }
+
     //Method to set the GUI components onto a frame
     public void setGUI()
     {
@@ -76,7 +99,7 @@ public class UserLogin implements ActionListener
 
         btnLogin.addActionListener(this);
         btnExit.addActionListener(this);
-
+        setColors();
         mainFrame.pack();
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
