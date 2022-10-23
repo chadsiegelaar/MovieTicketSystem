@@ -35,18 +35,18 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
 
         lblcomboSize = new JLabel("Combo Size");
         lblcomboPrice = new JLabel("Combo Price");
-       lblcomboAvailability = new JLabel(" ");
+        lblcomboAvailability = new JLabel(" ");
 
 
-        lblSmall = new JLabel("Small(Popcorn,Drink And Snack");
+        lblSmall = new JLabel("Small  (Popcorn,Drink And Snack)");
         radpriceSmall = new JRadioButton("R60");
         lblAvaS = new JLabel(" ");
 
-        lblMedium = new JLabel("Medium(Popcorn,Drink And Snack)");
+        lblMedium = new JLabel("Medium  (Popcorn,Drink And Snack)");
         radpriceMedium = new JRadioButton("R80");
         lblAvaM = new JLabel(" ");
 
-        lblLarge = new JLabel("Large(Popcorn,Drink And Snack)");
+        lblLarge = new JLabel("Large    (Popcorn,Drink And Snack)  ");
         radpriceLarge = new JRadioButton("R95");
         lblAvaL = new JLabel(" ");
 
@@ -101,8 +101,8 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         lblcomboPrice.setForeground(new Color(0, 0, 0));
         lblcomboSize.setForeground(new Color(0, 0, 0));
         lblcomboAvailability.setFont(ft3);
-       lblcomboAvailability.setHorizontalAlignment(JLabel.CENTER);
-       panelCenter.add(lblcomboAvailability);
+        lblcomboAvailability.setHorizontalAlignment(JLabel.CENTER);
+        panelCenter.add(lblcomboAvailability);
         lblcomboAvailability.setForeground(new Color(0, 0, 0));
 
 
@@ -113,12 +113,12 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         radpriceSmall.setHorizontalAlignment(JRadioButton.CENTER);
         radpriceSmall.setForeground(new Color(0, 0, 0));
         radpriceSmall.setBackground(new Color(242, 231, 29));
-       lblAvaS.setFont(ft2);
+        lblAvaS.setFont(ft2);
         panelCenter.add(lblAvaS);
         lblAvaS.setHorizontalAlignment(JLabel.CENTER);
         lblAvaS.setBackground(new Color(242, 231, 29));
         lblAvaS.setForeground(new Color(0, 0, 0));
-      radpriceSmall.setSelected(true);
+        radpriceSmall.setSelected(true);
 
         panelCenter.add(lblMedium);
         lblMedium.setFont(ft2);
@@ -196,7 +196,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
-        this.setSize(500, 500);
+        this.setSize(790, 500);
         this.setVisible(true);
     }
 
