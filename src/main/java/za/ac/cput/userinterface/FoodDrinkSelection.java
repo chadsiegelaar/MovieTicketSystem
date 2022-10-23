@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class FoodDrinkSelection extends JFrame implements ActionListener {
 
@@ -19,6 +20,8 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
     private ButtonGroup sizesGroup;
     private JButton btnAdd, btnBack, btnExit,btnPayment;
     private Font ft1, ft2, ft3;
+    Random rand = new Random();
+    int comboNr = rand.nextInt(9999);
     int size;
 
     public FoodDrinkSelection() {
@@ -29,7 +32,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         lblFandD = new JLabel("Food and Drink");
         lblcomboLogo1 = new JLabel(new ImageIcon("images.png"));
 
-        lblcomboNo = new JLabel("Combo No:2610");
+        lblcomboNo = new JLabel("Combo No: " + comboNr);
         lblBlank1 = new JLabel("");
 
 
