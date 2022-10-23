@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Register extends JDialog {
+public class Register extends JFrame {
     private JTextField LNtxt;
     private JTextField FNtxt;
     private JTextField Emailtxt;
@@ -18,11 +18,9 @@ public class Register extends JDialog {
     private JPanel registerPanel;
 
     public Register(JFrame parent){
-        super(parent);
         setTitle("Create an Account");
         setContentPane(registerPanel);
         setMinimumSize(new Dimension(450,474));
-        setModal(true);
         setLocationRelativeTo(parent);
 
         clearButton.addActionListener(new ActionListener() {

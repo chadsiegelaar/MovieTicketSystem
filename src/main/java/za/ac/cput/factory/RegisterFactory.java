@@ -1,19 +1,28 @@
 package za.ac.cput.factory;
 
+
 import za.ac.cput.domain.Register;
-import za.ac.cput.domain.User;
+import za.ac.cput.helper.RepositoryHelper;
+
 
 public class RegisterFactory {
-    public static Register build(String username, String password)
+    public static Register build(String firstName, String lastName, String email, String cellNumber, String username, String password)
     {
-        if(username == null ||username.isEmpty())
-            System.out.println("Password required");
+        if (RepositoryHelper.isNullorEmpty(firstName)||
+                RepositoryHelper.isNullorEmpty(lastName) ||
+                RepositoryHelper.isNullorEmpty(cellNumber) ||
+                RepositoryHelper.isNullorEmpty(username) ||
+                RepositoryHelper.isNullorEmpty(password) ||
+                RepositoryHelper.isNullorEmpty(email))
+            return null;
 
-        if(password == null ||password.isEmpty())
-            System.out.println("Password is required");
-
-        return new Register.Builder().setusername(username)
-                .setpassword(password)
+        return  new Register.Builder()
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setCellNumber(cellNumber)
+                .setEmail(email)
+                .setUsername(username)
+                .setPassword(password)
                 .build();
     }
 }

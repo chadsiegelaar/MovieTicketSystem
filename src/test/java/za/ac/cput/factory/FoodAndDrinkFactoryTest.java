@@ -10,7 +10,7 @@ class FoodAndDrinkFactoryTest {
     public void buildWithSuccess() {
 
         FoodAndDrink foodAndDrink = FoodAndDrinkFactory
-                .build("", "", "", "", "");
+                .createFoodAndDrink("", "", "", "", "");
         System.out.println(foodAndDrink);
         assertNotNull(foodAndDrink);
     }
@@ -20,7 +20,7 @@ class FoodAndDrinkFactoryTest {
 
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 FoodAndDrinkFactory
-                        .build("null", "", "", "", ""));
+                        .createFoodAndDrink("null", "", "", "", ""));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame("Combo NO is required!", exceptionMessage);
