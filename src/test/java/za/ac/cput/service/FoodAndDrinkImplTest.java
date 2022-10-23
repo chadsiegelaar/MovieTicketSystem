@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FoodAndDrinkImplTest {
     private final FoodAndDrink foodAndDrink = FoodAndDrinkFactory
-            .build("test-bev-name","price","","","");
+            .createFoodAndDrink("test-bev-name","price","","","");
     @Autowired
 
     private FoodAndDrinkService service;
@@ -50,5 +50,4 @@ class FoodAndDrinkImplTest {
         System.out.println(comboNOListList);
         assertSame(0 ,comboNOListList.size());
     }
-}
 }
