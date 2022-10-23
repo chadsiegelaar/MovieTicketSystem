@@ -5,14 +5,15 @@
 
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Location;
+import za.ac.cput.domain.Register;
 import za.ac.cput.domain.Ticket;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 public interface TicketService {
-    public Set<Ticket> getAll();
+    public List<Ticket> findAll();
     void deleteById(String id);
     Optional<Ticket> read(String id);
+
 }

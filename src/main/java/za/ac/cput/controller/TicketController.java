@@ -10,14 +10,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
 import za.ac.cput.domain.Ticket;
 import za.ac.cput.service.TicketServiceImpl;
 import javax.validation.Valid;
 import java.util.List;
-
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/ticket")
+@RequestMapping("movie-ticket/ticket")
 public class TicketController {
     private TicketServiceImpl ticketService;
 
@@ -27,8 +28,10 @@ public class TicketController {
     }
 
     @PostMapping("save")
-    public ResponseEntity<Ticket> save(@Valid @RequestBody Ticket ticket) {
-        return ResponseEntity.ok(this.ticketService.save(ticket));
+    public Ticket save(@Valid @RequestBody Ticket ticket)
+    {
+
+        return this.ticketService.save(ticket);
     }
 
     @GetMapping("read/{type}")
@@ -46,8 +49,8 @@ public class TicketController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<Ticket>> getAll() {
-        List<Ticket> contactTypes = (List<Ticket>) this.ticketService.getAll();
-        return ResponseEntity.ok(contactTypes);
+    public ResponseEntity<List<Ticket>> findAll() {
+        List<Ticket> tickets = (List<Ticket>) this.ticketService.findAll();
+        return ResponseEntity.ok(tickets);
     }
 }

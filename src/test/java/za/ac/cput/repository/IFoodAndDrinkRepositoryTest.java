@@ -4,7 +4,8 @@
  *Tasneem Jacobs (215030389)
  * Food And Drink
  * Repository Test
- */
+ *//*
+
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
@@ -49,4 +50,4 @@ class IFoodAndDrinkRepositoryTest {
         System.out.println(repository.getAll());
 
     }
-}
+}*/

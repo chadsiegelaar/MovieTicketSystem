@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class TicketControllerTest {
+class TicketControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
     @Autowired
@@ -33,7 +33,7 @@ public class TicketControllerTest {
     @BeforeEach
     public void setUp() {
         assertNotNull(controller);
-        this.ticket = TicketFactory.build("Spiderman","IMAX","Tuesday","18h45","Muizenberg");
+        this.ticket = TicketFactory.build("0001","Spiderman","IMAX","Tuesday","18h45","Muizenberg");
         this.baseURL = "http://localhost:"+ this.port +"/movie-ticket/ticket/";
     }
     @Test
@@ -48,7 +48,7 @@ public class TicketControllerTest {
     }
 
     @Test
-    void getAll() {
+    void findAll() {
         String url = baseURL + "all/" ;
         System.out.println(url);
         HttpHeaders header = new HttpHeaders();

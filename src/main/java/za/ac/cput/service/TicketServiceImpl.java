@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Ticket;
 import za.ac.cput.repository.TicketRepository;
+
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class TicketServiceImpl implements TicketService{
@@ -35,7 +35,7 @@ public class TicketServiceImpl implements TicketService{
     }
 
     @Override
-    public Set<Ticket> getAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+    public List<Ticket> findAll() {
+        return this.repository.findAll();
     }
 }

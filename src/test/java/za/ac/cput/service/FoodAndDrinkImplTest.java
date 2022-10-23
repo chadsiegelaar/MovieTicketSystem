@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service;
 
 import org.junit.jupiter.api.Test;
@@ -51,3 +52,4 @@ class FoodAndDrinkImplTest {
         assertSame(0 ,comboNOListList.size());
     }
 }
+*/

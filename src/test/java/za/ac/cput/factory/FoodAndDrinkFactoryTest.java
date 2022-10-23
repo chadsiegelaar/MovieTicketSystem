@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
@@ -25,4 +26,4 @@ class FoodAndDrinkFactoryTest {
         System.out.println(exceptionMessage);
         assertSame("Combo NO is required!", exceptionMessage);
     }
-}
+}*/

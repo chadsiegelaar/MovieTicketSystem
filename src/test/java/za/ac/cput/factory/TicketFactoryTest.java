@@ -12,7 +12,7 @@ import za.ac.cput.domain.Ticket;
 public class TicketFactoryTest{
     @Test
 public void test1(){
-    Ticket ticket = TicketFactory.build("Spiderman","IMAX","Tuesday","18h45", "Muizenberg");
+    Ticket ticket = TicketFactory.build("0001","Spiderman","IMAX","Tuesday","18h45", "Muizenberg");
     System.out.println(ticket.toString());
 }
 
