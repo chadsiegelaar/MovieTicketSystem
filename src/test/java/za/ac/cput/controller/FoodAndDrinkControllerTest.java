@@ -26,13 +26,15 @@ class FoodAndDrinkControllerTest {
     private FoodAndDrink foodAndDrink;
     private String baseURL;
 
-    @BeforeEach
+   /* @BeforeEach
     public void setUp() {
         assertNotNull(controller);
         this.foodAndDrink = FoodAndDrinkFactory
                 .build("test-type", "", "", "", "");
         this.baseURL = "http://;localhost:" + this.port + "/food/Combo-NO/";
     }
+
+    */
 
     @Order(1)
     public void testSave() {

@@ -18,7 +18,7 @@ public class FoodAndDrinkImpl implements FoodAndDrinkService{
         }
         @Override
         public Optional<FoodAndDrink> read(String comboNO) {
-            return this.repository.read(comboNO);
+            return this.repository.findById(comboNO);
         }
         @Override
         public boolean delete(FoodAndDrink foodAndDrink){

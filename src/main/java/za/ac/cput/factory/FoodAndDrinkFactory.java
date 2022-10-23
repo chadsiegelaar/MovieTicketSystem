@@ -4,7 +4,7 @@ import za.ac.cput.domain.FoodAndDrink;
 import za.ac.cput.helper.RepositoryHelper;
 
 public class FoodAndDrinkFactory {
-    public  static FoodAndDrink build(String  comboNO, String comboSize, String  comboPrice, String  comboAvailability , String  totalPrice){
+    public  static FoodAndDrink createFoodAndDrink(String  comboNO, String comboSize, String  comboPrice, String  comboAvailability , String  totalPrice){
 
         if (RepositoryHelper.isNullorEmpty(String.valueOf(comboNO))|| RepositoryHelper.isNullorEmpty(comboSize)||
                 RepositoryHelper.isNullorEmpty(String.valueOf(comboPrice))|| RepositoryHelper.isNullorEmpty(String.valueOf(comboAvailability))||

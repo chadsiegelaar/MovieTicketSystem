@@ -1,13 +1,16 @@
 package za.ac.cput.service;
 
+
 import za.ac.cput.domain.Register;
 
 
 import java.util.List;
+import java.util.Optional;
 
-public interface RegisterService extends IService<Register, String>
-{
+public interface RegisterService {
+    List<Register> findAll();
+
     void deleteById(String id);
 
-    List<Register> findAll();
+    Optional<Register> read(String s);
 }
