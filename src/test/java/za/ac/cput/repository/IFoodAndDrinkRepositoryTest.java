@@ -17,7 +17,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IFoodAndDrinkRepositoryTest {
-    private static FoodAndDrink foodAndDrink = FoodAndDrinkFactory.build("2100", "Large", "50", "R20", "");
+    private static FoodAndDrink foodAndDrink = FoodAndDrinkFactory.createFoodAndDrink("2100", "Large", "50", "R20", "");
     private static IFoodAndDrinkRepository repository;
 
     @Test

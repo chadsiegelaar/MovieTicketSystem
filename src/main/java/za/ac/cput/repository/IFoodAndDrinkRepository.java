@@ -16,11 +16,10 @@ import java.util.Optional;
 
 @Repository
 public interface IFoodAndDrinkRepository extends JpaRepository<FoodAndDrink,String> {
-    List<FoodAndDrink> findAllComboNo(String comboNO);
-
-    Optional<FoodAndDrink> read(String comboNO);
 
     FoodAndDrink create(FoodAndDrink foodAndDrink);
+
+    Optional<FoodAndDrink> read(String comboNO);
 
     boolean getAll();
 }
