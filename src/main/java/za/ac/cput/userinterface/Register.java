@@ -1,11 +1,20 @@
 package za.ac.cput.userinterface;
 
+import com.google.gson.Gson;
+import okhttp3.*;
+import za.ac.cput.factory.RegisterFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Register extends JFrame {
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
+
+    private  static OkHttpClient client = new OkHttpClient();
     private JTextField LNtxt;
     private JTextField FNtxt;
     private JTextField Emailtxt;
@@ -16,6 +25,7 @@ public class Register extends JFrame {
     private JTextField Passwordtxt;
     private JLabel Register;
     private JPanel registerPanel;
+    private JButton nextButton;
 
     public Register(JFrame parent){
         setTitle("Create an Account");
@@ -39,45 +49,54 @@ public class Register extends JFrame {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                registerUser();
+                save(FNtxt.getText(),LNtxt.getText(),Emailtxt.getText(),Celltxt.getText(),Usertxt.getText(),Passwordtxt.getText());
+                System.out.printf(FNtxt.getText(),LNtxt.getText(),Emailtxt.getText(),Celltxt.getText(),Usertxt.getText() +Passwordtxt.getText());
             }
         });
 
         setVisible(true);
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                UserLogin ul = new UserLogin();
+                ul.setGUI();
+            }
+        });
     }
 
-    private void registerUser() {
-        String FirstName = FNtxt.getText();
-        String LastName = LNtxt.getText();
-        String Email = Emailtxt.getText();
-        String CellNumber = Celltxt.getText();
-        String UserName= Usertxt.getText();
-        String Password = Passwordtxt.getText();
-
-        if (FirstName.isEmpty() || LastName.isEmpty() || Email.isEmpty()|| CellNumber.isEmpty() || UserName.isEmpty() || Password.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Please enter all fields",
-                    "Try again", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-      user =  addUsertoDatabase(FirstName,LastName,Email,CellNumber,UserName,Password);
-        if (user != null){
-            dispose();
-        }
-        else {
-            JOptionPane.showMessageDialog(this,
-                    "Failed to register new user",
-                    "Try again", JOptionPane.ERROR_MESSAGE);
+    public void save(String firstName, String lastName,String email, String cellNumber, String username, String password ) {
+        try {
+            final String url = "http://localhost:8080/movie-ticket/register/save";
+            za.ac.cput.domain.Register register = RegisterFactory.build(firstName,lastName,email,cellNumber,username,password);
+            Gson gson = new Gson();
+            String JsonString = gson.toJson(register);
+            String post = post(url, JsonString);
+            if (post != null)
+                JOptionPane.showMessageDialog(null, "Saved successfully");
+            else
+                JOptionPane.showMessageDialog(null, "ERROR!! Not Saved successfully!");
+        } catch (HeadlessException | IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public User user;
-    private User addUsertoDatabase(String FirstName, String LastName, String Email, String CellNumber, String UserName, String Password ){
-        User user = null;
-        return user;
+    public  String post(final  String url, String json) throws IOException {
+        RequestBody requestBody = RequestBody.create(json,JSON);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+
+
     }
+
 
     public static void main(String[] args){
-        Register myForm = new Register(null);
+        Register run = new Register(null);
     }
 }
