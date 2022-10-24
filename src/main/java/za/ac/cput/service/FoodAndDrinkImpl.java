@@ -1,13 +1,16 @@
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
+import org.springframework.stereotype.Service;
+
 import za.ac.cput.domain.FoodAndDrink;
 import za.ac.cput.repository.IFoodAndDrinkRepository;
 
 import java.util.List;
 import java.util.Optional;
-@Component
+
+@Service
 public class FoodAndDrinkImpl implements FoodAndDrinkService{
 
         private final IFoodAndDrinkRepository repository;

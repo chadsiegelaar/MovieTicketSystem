@@ -5,6 +5,8 @@
  */
 package za.ac.cput.userinterface;
 
+import za.ac.cput.domain.Movie;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +20,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
     private JTextField txtcPrice, txtAvailability, txtTotalPrice;
     private JRadioButton radpriceSmall, radpriceMedium, radpriceLarge;
     private ButtonGroup sizesGroup;
-    private JButton btnAdd, btnMovieTicket, btnExit;
+    private JButton btnAdd, btnMovie, btnExit;
     private Font ft1, ft2, ft3;
     Random rand = new Random();
     int comboNr = rand.nextInt(9999);
@@ -62,7 +64,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         sizesGroup = new ButtonGroup();
 
         btnAdd = new JButton("Add");
-        btnMovieTicket = new JButton("Movie Ticket");
+        btnMovie = new JButton("Movie");
         btnExit = new JButton("Exit");
 
 
@@ -169,10 +171,10 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         btnAdd.setForeground(new Color(242, 231, 29));
         btnAdd.setBackground(new Color(0, 0, 0));
         panelSouth.add(btnAdd);
-        btnMovieTicket.setFont(ft2);
-        btnMovieTicket.setForeground(new Color(242, 231, 29));
-        btnMovieTicket.setBackground(new Color(0, 0, 0));
-        panelSouth.add(btnMovieTicket);
+        btnMovie.setFont(ft2);
+        btnMovie.setForeground(new Color(242, 231, 29));
+        btnMovie.setBackground(new Color(0, 0, 0));
+        panelSouth.add(btnMovie);
 
         btnExit.setFont(ft2);
         btnExit.setForeground(new Color(242, 231, 29));
@@ -187,7 +189,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
 
         btnAdd.addActionListener(this);
         btnExit.addActionListener(this);
-        btnMovieTicket.addActionListener(this);
+        btnMovie.addActionListener(this);
 
 
 
@@ -207,11 +209,11 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
             } else if (radpriceLarge.isSelected()) {
                 txtTotalPrice.setText("R95");
             }
-                JOptionPane.showMessageDialog(this, "Successfully added your Combo Selection  please PROCEED TO Movie Ticket");
+                JOptionPane.showMessageDialog(this, "Successfully added your Combo Selection  please PROCEED TO Movie");
 
-            } else if (e.getActionCommand().equals("Movie Ticket")) {
-            MovieTicket movieticket = new MovieTicket();
-                movieticket.setMovieTicketGUI();
+            } else if (e.getActionCommand().equals("Movie")) {
+               // Movie movie = new Movie();
+                MovieGui run = new MovieGui();
 
 
             } else if (e.getActionCommand().equals("Exit")) {

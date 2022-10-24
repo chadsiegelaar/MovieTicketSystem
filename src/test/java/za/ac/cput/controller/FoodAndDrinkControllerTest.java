@@ -29,16 +29,15 @@ class FoodAndDrinkControllerTest {
     @BeforeEach
     public void setUp() {
         assertNotNull(controller);
-        this.foodAndDrink = FoodAndDrinkFactory.createFoodAndDrink("test-type",
-                "aa", "50", "true", "100");
+        this.foodAndDrink = FoodAndDrinkFactory
+                .createFoodAndDrink("test-type", "", "", "", "");
         this.baseURL = "http://;localhost:" + this.port + "/food/Combo-NO/";
     }
 
 
 
-    @Order(1)
-    public void testSave() {
-        String url = baseURL + "read/";
+    public void save() {
+        String url = baseURL + "save/";
         System.out.println(url);
         ResponseEntity<FoodAndDrink> response = this.restTemplate
                 .postForEntity(url, this.foodAndDrink, FoodAndDrink.class);
@@ -51,7 +50,7 @@ class FoodAndDrinkControllerTest {
     }
 
     @Test
-    @Order(2)
+
 
     public void testRead() {
         String url = baseURL + "read/" + this.foodAndDrink.getComboNO();
@@ -65,14 +64,13 @@ class FoodAndDrinkControllerTest {
     }
 
     @Test
-    @Order(3)
+
     public void testDelete() {
         String url = baseURL + "read/" + this.foodAndDrink.getComboNO();
         this.restTemplate.delete(url);
     }
 
     @Test
-    @Order(4)
     public void testFindAll() {
         String url = baseURL + "all";
         System.out.println(url);
