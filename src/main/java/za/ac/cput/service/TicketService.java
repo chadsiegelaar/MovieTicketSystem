@@ -5,9 +5,7 @@
 
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Register;
 import za.ac.cput.domain.Ticket;
-
 import java.util.List;
 import java.util.Optional;
 
