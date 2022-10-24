@@ -55,16 +55,16 @@ public class MovieGui extends JFrame {
 
     public  void  getAll(){
         try {
-            final String url ="http://localhost:8080/movie-ticket/location/all/";
+            final String url =" http://localhost:8080/movie-ticket/movie/all";
             String responseBody = run(url);
-            JSONArray locations = new JSONArray(responseBody);
+            JSONArray movies = new JSONArray(responseBody);
 
-            for(int i =0; i<locations.length();i++){
-                JSONObject location = locations.getJSONObject(i);
+            for(int i =0; i<movies.length();i++){
+                JSONObject movie = movies.getJSONObject(i);
                 Gson gson = new Gson();
-                Location loc = gson.fromJson(location.toString(),Location.class);
-                System.out.println(loc.toString());
-                textAreagetall.setText(location.toString()+"\n");
+                Movie mov = gson.fromJson(movie.toString(),Movie.class);
+                System.out.println(mov.toString());
+                textAreagetall.setText(movie.toString()+"\n");
 
             }
         } catch (IOException e) {
