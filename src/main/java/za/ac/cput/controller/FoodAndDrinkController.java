@@ -23,7 +23,7 @@ import java.util.Optional;
 @RequestMapping("movie-ticket/foodAndDrink/")
 @Slf4j
 public class FoodAndDrinkController {
-    private FoodAndDrinkImpl foodAndDrinkService;
+    private final FoodAndDrinkImpl foodAndDrinkService;
 
     @Autowired
     public FoodAndDrinkController(FoodAndDrinkImpl foodAndDrinkService) {
