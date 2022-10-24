@@ -11,7 +11,6 @@ import java.util.Optional;
 @Repository
 public interface IMovie extends JpaRepository<Movie,String> {
 
-
     @Query("select m from Movie m where m.Title = ?1")
     Optional<Movie> findByTitle(String Title);
 }
