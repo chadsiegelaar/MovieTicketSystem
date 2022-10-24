@@ -18,6 +18,8 @@ public  class MovieServiceImpl implements MovieService {
    @Autowired MovieServiceImpl(IMovie repository){
         this.repository = repository;
     }
+
+    @Override
     public Movie save (Movie movie){
        return this.repository.save(movie);
     }

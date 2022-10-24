@@ -29,6 +29,15 @@ public class RegisterServiceimpl implements RegisterService {
         return this.repository.findById(s);
     }
 
+    public boolean delete(String FirstName){
+        if(this.repository.existsById(FirstName)){
+            this.repository.deleteById(FirstName);
+            return true;
+        }
+        return false;
+    }
+
+
 
     @Override
     public void deleteById(String id)

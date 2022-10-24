@@ -5,6 +5,8 @@
  */
 package za.ac.cput.userinterface;
 
+import za.ac.cput.domain.Movie;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +20,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
     private JTextField txtcPrice, txtAvailability, txtTotalPrice;
     private JRadioButton radpriceSmall, radpriceMedium, radpriceLarge;
     private ButtonGroup sizesGroup;
-    private JButton btnAdd, btnBack, btnExit,btnPayment;
+    private JButton btnAdd, btnMovie, btnExit;
     private Font ft1, ft2, ft3;
     Random rand = new Random();
     int comboNr = rand.nextInt(9999);
@@ -62,8 +64,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         sizesGroup = new ButtonGroup();
 
         btnAdd = new JButton("Add");
-        btnBack = new JButton("Back");
-        btnPayment =new JButton("Payment");
+        btnMovie = new JButton("Movie");
         btnExit = new JButton("Exit");
 
 
@@ -76,7 +77,7 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
     public void setFoodDrinkGUI() {
         panelNorth.setLayout(new FlowLayout());
         panelCenter.setLayout(new GridLayout(8, 3));
-        panelSouth.setLayout(new GridLayout(1, 4));
+        panelSouth.setLayout(new GridLayout(1, 3));
 
 
         panelNorth.add(lblFandD);
@@ -170,15 +171,10 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
         btnAdd.setForeground(new Color(242, 231, 29));
         btnAdd.setBackground(new Color(0, 0, 0));
         panelSouth.add(btnAdd);
-        btnBack.setFont(ft2);
-        btnBack.setForeground(new Color(242, 231, 29));
-        btnBack.setBackground(new Color(0, 0, 0));
-        panelSouth.add(btnBack);
-
-        btnPayment.setFont(ft2);
-        btnPayment.setForeground(new Color(242, 231, 29));
-        btnPayment.setBackground(new Color(0, 0, 0));
-        panelSouth.add(btnPayment);
+        btnMovie.setFont(ft2);
+        btnMovie.setForeground(new Color(242, 231, 29));
+        btnMovie.setBackground(new Color(0, 0, 0));
+        panelSouth.add(btnMovie);
 
         btnExit.setFont(ft2);
         btnExit.setForeground(new Color(242, 231, 29));
@@ -193,8 +189,8 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
 
         btnAdd.addActionListener(this);
         btnExit.addActionListener(this);
-        btnBack.addActionListener(this);
-        btnPayment.addActionListener(this);
+        btnMovie.addActionListener(this);
+
 
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -213,9 +209,11 @@ public class FoodDrinkSelection extends JFrame implements ActionListener {
             } else if (radpriceLarge.isSelected()) {
                 txtTotalPrice.setText("R95");
             }
-                JOptionPane.showMessageDialog(this, "Successfully added your Combo Selection  please PROCEED TO PAYMENT");
+                JOptionPane.showMessageDialog(this, "Successfully added your Combo Selection  please PROCEED TO Movie");
 
-            } else if (e.getActionCommand().equals("Back")) {
+            } else if (e.getActionCommand().equals("Movie")) {
+               // Movie movie = new Movie();
+                MovieGui run = new MovieGui();
 
 
             } else if (e.getActionCommand().equals("Exit")) {

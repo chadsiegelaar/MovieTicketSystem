@@ -30,26 +30,26 @@ public class MovieController {
     {
         log.info("Read Request: {}", id);
 
-        return this.movieService.read(id);
+        return movieService.read(id);
     }
     @PostMapping("save")
-    public Movie save(@Valid @RequestBody Movie movie)
+    public ResponseEntity <Movie> save(@Valid @RequestBody Movie movie)
     {
         log.info("Save Request: {}", movie);
-        return this.movieService.save(movie);
+        return ResponseEntity.ok( movieService.save(movie));
     }
     @GetMapping("all")
     public List<Movie> findAll()
     {
-        return this.movieService.findAll();
+        return movieService.findAll();
     }
     @GetMapping("find/{title}")
     public Optional<Movie> findTitle(@PathVariable @Valid String Title){
-        return  this.movieService.findByTitle(Title);
+        return  movieService.findByTitle(Title);
     }
 @DeleteMapping("delete/{MovieID}")
 public boolean delete(@PathVariable String MovieID){
-        this.movieService.delete(MovieID);
+        movieService.delete(MovieID);
         return true;
 }
 
