@@ -1,15 +1,18 @@
 package za.ac.cput.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
+import java.io.Serializable;
+@JsonDeserialize
 @Entity
 public class Register implements Serializable {
 
     @Id
-    @NotNull
+    @Basic (optional = false)
     private String FirstName;
     private String LastName;
     private String Email;
