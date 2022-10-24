@@ -353,16 +353,16 @@ public class seatSelection extends javax.swing.JFrame {
         int seats=Integer.parseInt(jSeats.getText());
         int amount=price*seats;
         if(jCash.isSelected()==true)
-            jPayments.setText("Cash Payment of R."+amount);
+            jPayments.setText("Cash Payment to be made at cinema of R "+amount);
         else
         if(jDebit.isSelected()==true)
-            jPayments.setText("Debit/Credit Payment of R."+amount);
+            jPayments.setText("Debit/Credit Payment to be made at cinema of R "+amount);
         else
         if(jApple.isSelected()==true)
-            jPayments.setText("Apple Pay Payment of R."+amount);
+            jPayments.setText("Apple Pay Payment to be made at the cinema of R "+amount);
         else
         if(jEft.isSelected()==true)
-            jPayments.setText("EFT Payment of R."+amount);
+            jPayments.setText("EFT Payment to account FnB acc of R "+amount);
 
 
         // TODO add your handling code here:

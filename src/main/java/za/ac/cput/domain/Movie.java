@@ -1,26 +1,26 @@
 package za.ac.cput.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.io.Serializable;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.NonNull;
 
+import javax.persistence.*;
+import java.io.Serializable;
+@JsonDeserialize
 @Entity
 public class Movie implements Serializable {
     @Id
-    @Column(name = "MovieID", nullable = false)
+    @Basic(optional = false)
     private String MovieID;
-
     private String Title;
-    private  double Rating;
+    private  String Rating;
     private String MovieType;
-    private double RunningTime;
+    private String RunningTime;
 
-    public Movie(String movieID, String title, double Rating, String movieType, double runningTime) {
+    public Movie(String movieID, String title, String rating, String movieType, String runningTime) {
         MovieID = movieID;
         Title = title;
-        this.Rating = Rating;
+        Rating = rating;
         MovieType = movieType;
         RunningTime = runningTime;
     }
@@ -44,12 +44,12 @@ public class Movie implements Serializable {
         Title = title;
     }
 
-    public double getRating() {
+    public String getRating() {
         return Rating;
     }
 
-    public void setRating(double rating) {
-        this.Rating = Rating;
+    public void setRating(String rating) {
+        this.Rating = rating;
     }
 
     public String getMovieType() {
@@ -60,11 +60,11 @@ public class Movie implements Serializable {
         MovieType = movieType;
     }
 
-    public double getRunningTime() {
+    public String getRunningTime() {
         return RunningTime;
     }
 
-    public void setRunningTime(double runningTime) {
+    public void setRunningTime(String runningTime) {
         RunningTime = runningTime;
     }
 
@@ -81,18 +81,18 @@ public class Movie implements Serializable {
     //Implementing builder pattern
     private Movie(Builder builder){
         this.MovieID = builder.MovieID;
-                this.Title = builder.Title;
-                        this.Rating = builder.Rating;
-                                this.MovieType = builder.MovieType;
-                                        this.RunningTime = builder.RunningTime;
+        this.Title = builder.Title;
+        this.Rating = builder.Rating;
+        this.MovieType = builder.MovieType;
+        this.RunningTime = builder.RunningTime;
 
     }
     public static class Builder{
         private String MovieID;
         private String Title;
-        private  double Rating;
+        private  String Rating;
         private String MovieType;
-        private double RunningTime;
+        private String RunningTime;
 
         public Builder setMovieID(String movieID) {
             this.MovieID = movieID;
@@ -105,7 +105,7 @@ public class Movie implements Serializable {
 
         }
 
-        public Builder setRating(double rating) {
+        public Builder setRating(String rating) {
             this.Rating = rating;
             return this;
         }
@@ -116,7 +116,7 @@ public class Movie implements Serializable {
 
         }
 
-        public Builder setRunningTime(double runningTime) {
+        public Builder setRunningTime(String runningTime) {
             this.RunningTime = runningTime;
             return this;
         }
