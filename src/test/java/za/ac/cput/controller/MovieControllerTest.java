@@ -27,7 +27,7 @@ class MovieControllerTest {
     @BeforeEach
     public void setUp() {
         assertNotNull(controller);
-        this.movie =  MovieFactory.build("123","Black",8.9,"Action",2.30);
+        this.movie =  MovieFactory.build("123","Black","8.9","Action","2.30");
         this.baseURL = "http://localhost:"+ this.port +"/movie-ticket/movie/";
     }
     @Test

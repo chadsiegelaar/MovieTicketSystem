@@ -1,13 +1,14 @@
 package za.ac.cput.domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.io.Serializable;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import javax.persistence.*;
+import java.io.Serializable;
+@JsonDeserialize
 @Entity
 public class Location implements Serializable {
     @Id
+    @Basic(optional = false)
    private  String NameOfCinema;
    private String SeatName;
    private String SeatSection;
@@ -27,7 +28,6 @@ public class Location implements Serializable {
     }
 
     public Location() {}
-
     public String getNameOfCinema() {
         return NameOfCinema;
     }
