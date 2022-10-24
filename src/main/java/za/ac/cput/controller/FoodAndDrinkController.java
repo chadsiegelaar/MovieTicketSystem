@@ -11,41 +11,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.FoodAndDrink;
-import za.ac.cput.service.FoodAndDrinkService;
+import lombok.extern.slf4j.Slf4j;
+import za.ac.cput.domain.Location;
+import za.ac.cput.service.FoodAndDrinkImpl;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
-@RequestMapping("movie-ticket/FoodAndDrink/")
+@RequestMapping("movie-ticket/foodAndDrink/")
+@Slf4j
 public class FoodAndDrinkController {
-
-    private final FoodAndDrinkService foodAndDrinkService;
-
+    private FoodAndDrinkImpl foodAndDrinkService;
 
     @Autowired
-    public FoodAndDrinkController(FoodAndDrinkService foodAndDrinkService) {
+    public FoodAndDrinkController(FoodAndDrinkImpl foodAndDrinkService) {
         this.foodAndDrinkService = foodAndDrinkService;
     }
 
     @PostMapping("Save")
     //implementation of the controller
-    public ResponseEntity<FoodAndDrink> save(@Valid @RequestBody FoodAndDrink foodAndDrink) {
-        //log.info("Save Request: {}", foodAndDrink);
-        FoodAndDrink save = this.foodAndDrinkService.save(foodAndDrink);
-        return ResponseEntity.ok(save);
-
-    }
-
-
-    @DeleteMapping("delete/{type}")
-    public ResponseEntity<Void> delete(@PathVariable String comboNO) {
-        this.foodAndDrinkService.deleteBycomboNO(comboNO);
-        return ResponseEntity.noContent().build();
+    public FoodAndDrink save(@Valid @RequestBody FoodAndDrink FoodAndDrink) {
+        log.info("Save Request: {}", FoodAndDrink);
+        return this.foodAndDrinkService.save(FoodAndDrink);
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<FoodAndDrink>> findAll() {
-        List<FoodAndDrink> foodAndDrink = this.foodAndDrinkService.findAll();
-        return ResponseEntity.ok(foodAndDrink);
+    public List<FoodAndDrink> findAll() {
+        return this.foodAndDrinkService.findAll();
+    }
+
+    @DeleteMapping("delete/{comboNo}")
+    public void delete (@PathVariable String comboNO) {
+        this.foodAndDrinkService.deleteBycomboNO(comboNO);
+    }
+    @GetMapping("read/{comboNO}")
+    public Optional<FoodAndDrink> read(@PathVariable String comboNo)
+    {
+        log.info("Read Request: {}", comboNo);
+        return this.foodAndDrinkService.read(comboNo);
     }
 }
