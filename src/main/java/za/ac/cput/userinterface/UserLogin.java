@@ -83,15 +83,21 @@ public class UserLogin implements ActionListener
 
         panelNorth.add(lblHead);
 
+
+        lblUserName.setPreferredSize(new Dimension(193, 20));
+        txtUserName.setPreferredSize(new Dimension(200, 20));
         panelEast.add(lblUserName);
         panelEast.add(txtUserName);
 
+
+        lblPassword.setPreferredSize(new Dimension(193, 20));
+        pswdPassword.setPreferredSize(new Dimension(200, 20));
         panelEast.add(lblPassword);
         panelEast.add(pswdPassword);
-
         panelSouth.add(btnLogin);
         panelSouth.add(btnExit);
 
+        mainFrame.setPreferredSize(new Dimension(400, 150));
         mainFrame.add(panelNorth, BorderLayout.NORTH);
         mainFrame.add(panelWest, BorderLayout.WEST);
         mainFrame.add(panelEast, BorderLayout.EAST);
@@ -203,7 +209,9 @@ public class UserLogin implements ActionListener
         {
            if(ifLoginEmpty() == true)
            {
-               passwordMessageToUser();
+               mainFrame.dispose();
+               FoodDrinkSelection foodAndDrink = new FoodDrinkSelection();
+               foodAndDrink.setFoodDrinkGUI();
            }
         }
 
