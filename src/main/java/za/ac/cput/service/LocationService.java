@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface LocationService  {
 
+     Location save(Location location);
     List<Location> findAll();
     void deleteById(String id);
     Optional<Location> read(String s);

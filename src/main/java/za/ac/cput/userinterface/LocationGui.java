@@ -1,12 +1,21 @@
 package za.ac.cput.userinterface;
 
+import com.google.gson.Gson;
+import okhttp3.*;
+import za.ac.cput.domain.Location;
+import za.ac.cput.factory.LocationFactory;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 public class LocationGui extends JFrame {
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
+
+    private  static OkHttpClient client = new OkHttpClient();
     private JPanel Main;
     private JTextField textBldname;
     private JTextField textRmnum;
@@ -14,57 +23,51 @@ public class LocationGui extends JFrame {
     private JTextField textStnum;
     private JButton previousButton;
     private JButton nextButton;
-    private JComboBox comboBox1;
+
+    private JButton saveButton;
     String[] Titles={};
-    public void populateTitle() {
-        List<String> ttl = new ArrayList<>();
-        ttl.add("");
-        ttl.add("2D");
-        ttl.add("3D");
-        ttl.add("IMAX");
 
-        for (int i = 0; i < ttl.size(); i++) {
 
-            comboBox1.addItem(ttl.get(i));
-        }
-    }
-    public void selected() {
-     if(comboBox1.getSelectedItem() =="2D"){
-         textBldname.setText("Motion");
-         textRmnum.setText("02");
-         textStscn.setText("1stRow,Left ");
-         textStnum.setText("M12");
-     }
-        if(comboBox1.getSelectedItem() =="3D"){
-            textBldname.setText("Movie Zone");
-            textRmnum.setText("12");
-            textStscn.setText("2ndRow,Center ");
-            textStnum.setText("MZ4");
-        }
-        if(comboBox1.getSelectedItem() =="IMAX"){
-            textBldname.setText("Star City");
-            textRmnum.setText("01");
-            textStscn.setText("3rdRow,Right");
-            textStnum.setText("SC2");
-        }
-        if(comboBox1.getSelectedItem() ==""){
-            textBldname.setText("");
-            textRmnum.setText("");
-            textStscn.setText("");
-            textStnum.setText("");
-        }
-
-    }
     public  void clear(){
-        comboBox1.setSelectedItem("") ;
+
             textBldname.setText("");
             textRmnum.setText("");
             textStscn.setText("");
             textStnum.setText("");
+    }
+
+    public void save(String nameOfCinema, String seatName, String seatSection, boolean seatAvailability) {
+        try {
+            final String url = "http://localhost:8080/movie-ticket/location/save";
+            Location location = LocationFactory.build(nameOfCinema,seatName,seatSection,seatAvailability);
+            Gson gson = new Gson();
+            String JsonString = gson.toJson(location);
+            String post = post(url, JsonString);
+            if (post != null)
+                JOptionPane.showMessageDialog(null, "Saved successfully");
+            else
+                JOptionPane.showMessageDialog(null, "ERROR!! Not Saved successfully!");
+        } catch (HeadlessException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public  String post(final  String url, String json) throws IOException {
+        RequestBody requestBody = RequestBody.create(json,JSON);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+
+
     }
 
     public LocationGui() {
-        populateTitle();
+
         setContentPane(Main);
         setTitle("Cinema");
         setSize(600, 400);
@@ -79,11 +82,20 @@ public class LocationGui extends JFrame {
             }
         });
 
-        comboBox1.addActionListener(new ActionListener() {
+
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                save(textBldname.getText(),textStnum.getText(),textStscn.getText(),true);
+                System.out.printf(textBldname.getText() +textStnum.getText()+textStscn.getText()+true);
+            }
+        });
+        nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                selected();
+                MovieTicket mv = new MovieTicket();
+                 mv.setMovieTicketGUI();
             }
         });
     }
